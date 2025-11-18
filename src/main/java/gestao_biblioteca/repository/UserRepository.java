@@ -1,8 +1,11 @@
-package repository;
+package gestao_biblioteca.repository;
 
-import models.User;
+import gestao_biblioteca.models.User;
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 
+@Repository
 public class UserRepository {
 
     private ArrayList<User> users;
@@ -11,45 +14,36 @@ public class UserRepository {
         this.users = new ArrayList<>();
     }
 
-    // adicionar user sem duplicar
     public void adicionarUser(User user) {
         if (!users.contains(user)) {
             users.add(user);
         }
     }
 
-    // procurar user por ID
     public User procurarPorId(int id) {
-        for (User user : users) {
-            if (user.getId() == id) {
-                return user;
-            }
+        for (User u : users) {
+            if (u.getId() == id) return u;
         }
         return null;
     }
 
-    // procurar por email
     public User procurarPorEmail(String email) {
-        for (User user : users) {
-            if (user.getEmail().equalsIgnoreCase(email)) {
-                return user;
-            }
+        for (User u : users) {
+            if (u.getEmail().equalsIgnoreCase(email)) return u;
         }
         return null;
     }
 
-    // remover user
     public boolean removerUser(int id) {
-        for (User user : users) {
-            if (user.getId() == id) {
-                users.remove(user);
+        for (User u : users) {
+            if (u.getId() == id) {
+                users.remove(u);
                 return true;
             }
         }
         return false;
     }
 
-    // listar users
     public ArrayList<User> listarUsers() {
         return new ArrayList<>(users);
     }

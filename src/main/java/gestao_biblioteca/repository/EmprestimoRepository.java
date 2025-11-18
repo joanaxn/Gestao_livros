@@ -1,9 +1,11 @@
-package repository;
+package gestao_biblioteca.repository;
 
-import models.Emprestimo;
+import gestao_biblioteca.models.Emprestimo;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 
+@Repository
 public class EmprestimoRepository {
 
     private ArrayList<Emprestimo> emprestimos;
@@ -12,36 +14,26 @@ public class EmprestimoRepository {
         this.emprestimos = new ArrayList<>();
     }
 
-    // adicionar empréstimo
     public void adicionarEmprestimo(Emprestimo emp) {
         emprestimos.add(emp);
     }
 
-    // procurar por ID
     public Emprestimo procurarPorId(int id) {
         for (Emprestimo e : emprestimos) {
-            if (e.getIdEmprestimo() == id) {
-                return e;
-            }
+            if (e.getIdEmprestimo() == id) return e;
         }
         return null;
     }
 
-    // listar todos
-    public ArrayList<Emprestimo> listarEmprestimos() {
+    public ArrayList<Emprestimo> listarTodos() {
         return new ArrayList<>(emprestimos);
     }
 
-    // listar apenas ativos
     public ArrayList<Emprestimo> listarAtivos() {
         ArrayList<Emprestimo> ativos = new ArrayList<>();
-
         for (Emprestimo e : emprestimos) {
-            if (!e.isDevolvido()) {
-                ativos.add(e);
-            }
+            if (!e.isDevolvido()) ativos.add(e);
         }
-
         return ativos;
     }
 }

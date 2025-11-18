@@ -1,14 +1,14 @@
-package models;
+package gestao_biblioteca.models;
 
 public class Emprestimo {
     private int idEmprestimo;
-    private User user;
-    private Livro livro;
+    private gestao_biblioteca.models.User user;
+    private gestao_biblioteca.models.Livro livro;
     private String dataEmprestimo;
     private String dataDevolucao;
     private boolean devolvido;
 
-    public Emprestimo(int idEmprestimo, User user, Livro livro, String dataEmprestimo, String dataDevolucao, boolean devolvido) {
+    public Emprestimo(int idEmprestimo, gestao_biblioteca.models.User user, gestao_biblioteca.models.Livro livro, String dataEmprestimo, String dataDevolucao, boolean devolvido) {
         this.idEmprestimo = idEmprestimo;
         this.user = user;
         this.livro = livro;
@@ -26,19 +26,19 @@ public class Emprestimo {
         this.idEmprestimo = idEmprestimo;
     }
 
-    public User getUser() {
+    public gestao_biblioteca.models.User getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(gestao_biblioteca.models.User user) {
         this.user = user;
     }
 
-    public Livro getLivro() {
+    public gestao_biblioteca.models.Livro getLivro() {
         return livro;
     }
 
-    public void setLivro(Livro livro) {
+    public void setLivro(gestao_biblioteca.models.Livro livro) {
         this.livro = livro;
     }
 

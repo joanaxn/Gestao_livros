@@ -1,6 +1,4 @@
-package models;
-
-import models.Emprestimo;
+package gestao_biblioteca.models;
 
 import java.util.ArrayList;
 

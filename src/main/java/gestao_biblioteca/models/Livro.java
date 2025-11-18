@@ -1,5 +1,4 @@
-package models;
-
+package gestao_biblioteca.models;
 public class Livro{
     private String isbn;
     private String titulo;
