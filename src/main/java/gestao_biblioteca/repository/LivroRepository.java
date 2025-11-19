@@ -15,9 +15,7 @@ public class LivroRepository {
     }
 
     public void adicionarLivro(Livro livro) {
-        if (!livros.contains(livro)) {
             livros.add(livro);
-        }
     }
 
     public Livro procurarPorTitulo(String titulo) {
