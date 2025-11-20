@@ -12,6 +12,7 @@ export default function Navbar() {
         {/* LINKS */}
         <ul className="nav-links">
           <li><a href="/livros">Livros</a></li>
+          <li><a href="/livros/adicionar">Adicionar Livro</a></li> {/* 🔥 ROTA CERTA */}
           <li><a href="/users">Utilizadores</a></li>
           <li><a href="/emprestimos">Empréstimos</a></li>
         </ul>

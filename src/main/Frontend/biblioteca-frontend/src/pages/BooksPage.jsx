@@ -3,17 +3,19 @@ import LivroService from "../services/LivroService";
 import BookCard from "../components/BookCard";
 import "./BooksPage.css";
 
+
+//Faz com que apareçam os livros listados, vindos do backend
+
 export default function BooksPage() {
   const [livros, setLivros] = useState([]);
 
   useEffect(() => {
-    async function fetchLivros() {
-      console.log("📘 A pedir livros...");
-      const data = await LivroService.listarTodos();
-      console.log("📗 Livros recebidos:", data);
-      setLivros(data);
+    async function carregarLivros() {
+      const lista = await LivroService.listarTodos();
+      setLivros(lista);
     }
-    fetchLivros();
+
+    carregarLivros();
   }, []);
 
   return (

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/emprestimos")
 public class EmprestimoController {
 
@@ -42,5 +43,10 @@ public class EmprestimoController {
     @GetMapping("/listarTodos")
     public ArrayList<Emprestimo> listarTodos() {
         return emprestimoService.listarTodos();
+    }
+
+    @PutMapping("/{id}/confirmar")
+    public String confirmarEmprestimo(@PathVariable int id) {
+        return emprestimoService.confirmarEmprestimo(id);
     }
 }

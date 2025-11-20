@@ -65,4 +65,25 @@ public class EmprestimoService {
     public ArrayList<Emprestimo> listarTodos() {
         return emprestimoRepo.listarTodos();
     }
+
+
+    public String confirmarEmprestimo(int idEmprestimo) {
+
+        Emprestimo emp = emprestimoRepo.procurarPorId(idEmprestimo);
+
+        if (emp == null) {
+            return "Empréstimo não encontrado.";
+        }
+
+        // Se já estiver devolvido não podes confirmar
+        if (emp.isDevolvido()) {
+            return "Este empréstimo já foi devolvido.";
+        }
+
+        // Marcar livro como indisponível
+        Livro livro = emp.getLivro();
+        livro.setDisponivel(false);
+
+        return "Empréstimo confirmado!";
+    }
 }

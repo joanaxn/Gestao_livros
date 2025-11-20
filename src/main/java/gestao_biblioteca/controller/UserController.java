@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/user")
 public class UserController {
 
@@ -19,7 +19,7 @@ public class UserController {
         return userService.adicionarUser(user);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public User procurarPorId(@PathVariable int id){
         return userService.procurarPorId(id);
     }
@@ -29,7 +29,7 @@ public class UserController {
         return (ArrayList<User>) userService.listarUsers();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/id/{id}")
     public String removerUser(@PathVariable int id){
         return userService.removerUser(id);
     }

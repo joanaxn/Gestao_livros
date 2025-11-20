@@ -2,6 +2,8 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8080/livros";
 
+//so pede livros ao backend
+
 export default {
   async listarTodos() {
     const res = await axios.get(`${API_URL}/todos`);
@@ -10,6 +12,11 @@ export default {
 
   async listarDisponiveis() {
     const res = await axios.get(`${API_URL}/disponiveis`);
+    return res.data;
+  },
+
+  async adicionarLivro(livro) {
+    const res = await axios.post("http://localhost:8080/livros/adicionar", livro);
     return res.data;
   }
 };

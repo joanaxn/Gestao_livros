@@ -29,7 +29,9 @@ public class UserRepository {
 
     public User procurarPorEmail(String email) {
         for (User u : users) {
-            if (u.getEmail().equalsIgnoreCase(email)) return u;
+            if (u.getEmail() != null && u.getEmail().equalsIgnoreCase(email)) {
+                return u;
+            }
         }
         return null;
     }

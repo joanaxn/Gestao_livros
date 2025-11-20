@@ -3,23 +3,31 @@ import axios from "axios";
 const bookImagesService = {
   async getBookImage(titulo) {
     try {
-      const response = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes?q=intitle:${titulo}`
+      if (!titulo) return undefined;
+
+      const query = encodeURIComponent(titulo);
+
+      const res = await axios.get(
+        `https://www.googleapis.com/books/v1/volumes?q=intitle:${query}`
       );
 
-      const items = response.data.items;
+      const lista = res.data.items;
+      if (!lista || lista.length === 0) return undefined;
 
-      if (!items || items.length === 0) return null;
+      const info = lista[0].volumeInfo;
 
-      const image =
-        items[0].volumeInfo.imageLinks?.thumbnail ||
-        items[0].volumeInfo.imageLinks?.smallThumbnail ||
-        null;
+      if (info.imageLinks) {
+        return (
+          info.imageLinks.thumbnail ||
+          info.imageLinks.smallThumbnail ||
+          undefined
+        );
+      }
 
-      return image;
-    } catch (err) {
-      console.log("Erro ao buscar imagem:", err);
-      return null;
+      return undefined;
+    } catch (erro) {
+      console.error("Erro ao buscar imagem:", erro);
+      return undefined;
     }
   }
 };

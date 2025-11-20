@@ -7,7 +7,6 @@ import LoansPage from "./pages/LoansPage";
 import LoanReturnPage from "./pages/LoanReturnPage";
 import Navbar from "./components/Navbar";
 
-
 export default function App() {
   return (
     <BrowserRouter>
@@ -19,7 +18,6 @@ export default function App() {
         <Route path="/users" element={<UsersPage />} />
         <Route path="/emprestimos" element={<LoansPage />} />
         <Route path="/emprestimos/devolver" element={<LoanReturnPage />} />
-
       </Routes>
     </BrowserRouter>
   );
