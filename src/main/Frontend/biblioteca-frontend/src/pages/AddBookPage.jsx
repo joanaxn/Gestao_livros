@@ -130,7 +130,7 @@ export default function AddBookPage() {
         style={{
           width: "100%",
           padding: "10px",
-          background: "#4CAF50",
+          background: "#1A2A6C",
           color: "white",
           fontWeight: "bold",
           border: "none",

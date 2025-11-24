@@ -18,7 +18,6 @@ public class LivroService {
     }
 
     public String adicionarLivro(Livro livro) {
-        livro.setDisponivel(true);
         repository.adicionarLivro(livro);
         return "Livro adicionado!";
     }
