@@ -6,14 +6,15 @@ export default function UsersPage() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [contacto, setContacto] = useState("");
+  const [password, setPassword] = useState("");
 
   async function adicionarUser() {
-    if (!nome || !email || !contacto) {
+    if (!nome || !email || !contacto || !password) {
       alert("Preenche todos os campos pf");
       return;
     }
 
-    const newUser = { nome, email, contacto };
+    const newUser = { nome, email, contacto, password };
     const result = await UserService.adicionarUser(newUser);
 
     alert(result);
@@ -21,6 +22,7 @@ export default function UsersPage() {
     setNome("");
     setEmail("");
     setContacto("");
+    setPassword("");
   }
 
   return (
@@ -56,6 +58,17 @@ export default function UsersPage() {
         onChange={(e) => setContacto(e.target.value)}
         style={{ width: "100%", marginBottom: "15px" }}
       />
+
+
+       {/* Password */}
+            <label><strong>Password</strong></label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              style={{ width: "100%", marginBottom: "15px" }}
+            />
+
 
       {/* Botão */}
       <button

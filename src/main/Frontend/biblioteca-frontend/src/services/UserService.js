@@ -12,6 +12,12 @@ const UserService = {
   async adicionarUser(user) {
     const res = await axios.post(`${API_URL}/adicionar`, user);
     return res.data;
+  },
+
+  async login(email, password) {
+    const body = { email, password };
+    const res = await axios.post(`${API_URL}/login`, body);
+    return res.data;
   }
 
 };

@@ -7,7 +7,8 @@ import gestao_biblioteca.service.LivroService;
 
 import java.util.ArrayList;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
+
 
 @RestController
 @RequestMapping("/livros")

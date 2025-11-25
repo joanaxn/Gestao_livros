@@ -1,13 +1,15 @@
 package gestao_biblioteca.controller;
 
+import gestao_biblioteca.models.Emprestimo;
 import gestao_biblioteca.models.User;
 import gestao_biblioteca.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RequestMapping("/user")
 public class UserController {
 
@@ -19,18 +21,38 @@ public class UserController {
         return userService.adicionarUser(user);
     }
 
-    @GetMapping("/id/{id}")
-    public User procurarPorId(@PathVariable int id){
-        return userService.procurarPorId(id);
+    @PostMapping("/login")
+    public User login(@RequestBody User loginRequest) {
+        User user = userService.procurarPorEmail(loginRequest.getEmail());
+
+        if (user == null) return null;
+        if (!user.getPassword().equals(loginRequest.getPassword())) return null;
+
+        // remover lista para evitar recursão
+        user.setLivrosemprestimos(null);
+        return user;
     }
 
     @GetMapping("/listar")
     public ArrayList<User> listarUsers(){
-        return (ArrayList<User>) userService.listarUsers();
+        ArrayList<User> lista = userService.listarUsers();
+
+        // APAGA SEMPRE empréstimos para frontend
+        for (User u : lista) {
+            u.setLivrosemprestimos(null);
+        }
+
+        return lista;
     }
 
-    @DeleteMapping("/id/{id}")
-    public String removerUser(@PathVariable int id){
-        return userService.removerUser(id);
+    @GetMapping("/{id}/emprestimosAtivos")
+    public ArrayList<Emprestimo> listarEmprestimosAtivos(@PathVariable int id) {
+        ArrayList<Emprestimo> lista = userService.listarEmprestimosAtivos(id);
+
+        for (Emprestimo e : lista) {
+            e.setUser(null); // remover o user evita loops infinitos
+        }
+
+        return lista;
     }
 }

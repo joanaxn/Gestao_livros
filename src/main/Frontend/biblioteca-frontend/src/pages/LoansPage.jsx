@@ -13,8 +13,14 @@ export default function LoansPage() {
 
 
   async function carregarDados() {
+
+    // ---- USERS ----
+    const usersList = await UserService.listar();
+    const usersArray = Array.isArray(usersList) ? usersList : [];
+    setUsers(usersArray);
+
+    // ---- LIVROS ----
     const listaLivros = await LivroService.listarDisponiveis();
-    const listaUsers = await UserService.listar();
 
     const livrosComImagem = await Promise.all(
       listaLivros.map(async (livro) => {
@@ -24,14 +30,14 @@ export default function LoansPage() {
     );
 
     setLivros(livrosComImagem);
-    setUsers(listaUsers);
   }
 
   useEffect(() => {
     carregarDados();
   }, []);
 
-  // Confirmar empréstimo (CRIAR)
+
+  // Confirmar empréstimo
   async function confirmarEmprestimo(userId, data) {
     const body = {
       userId: Number(userId),
@@ -46,6 +52,7 @@ export default function LoansPage() {
     await carregarDados();
     setLivroSelecionado(null);
   }
+
 
   return (
     <div style={{ padding: "20px" }}>

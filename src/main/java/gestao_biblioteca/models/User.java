@@ -7,15 +7,16 @@ public class User {
     private String nome;
     private String email;
     private String contacto;
-    private ArrayList<Emprestimo> Livrosemprestimos;
+    private String password;
 
-    public User(int id, String nome, String email, String contacto, ArrayList<Emprestimo> livrosemprestimos) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.contacto = contacto;
-        Livrosemprestimos = livrosemprestimos;
+    private ArrayList<Emprestimo> livrosemprestimos;
+
+
+    public User() {
+        this.livrosemprestimos = new ArrayList<>();
     }
+
+    // getters e setters
 
     public int getId() {
         return id;
@@ -49,12 +50,20 @@ public class User {
         this.contacto = contacto;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public ArrayList<Emprestimo> getLivrosemprestimos() {
-        return Livrosemprestimos;
+        return livrosemprestimos;
     }
 
     public void setLivrosemprestimos(ArrayList<Emprestimo> livrosemprestimos) {
-        Livrosemprestimos = livrosemprestimos;
+        livrosemprestimos = livrosemprestimos;
     }
 
     @Override
@@ -64,7 +73,7 @@ public class User {
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", contacto='" + contacto + '\'' +
-                ", Livrosemprestimos=" + Livrosemprestimos +
+                ", Livrosemprestimos=" + livrosemprestimos +
                 '}';
     }
 }

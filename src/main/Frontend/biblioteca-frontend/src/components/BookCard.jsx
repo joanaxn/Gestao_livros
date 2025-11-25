@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import bookImagesService from "../services/BookImageService";
-import "./BookCard.css";
+
 
 function BookCard({ livro }) {
   const [imagem, setImagem] = useState(null);

@@ -2,10 +2,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import BooksPage from "./pages/BooksPage";
 import AddBookPage from "./pages/AddBookPage";
-import UsersPage from "./pages/UsersPage";
+import UsersPage from "./pages/AddUser";
 import LoansPage from "./pages/LoansPage";
-import LoanReturnPage from "./pages/LoanReturnPage";
+import LoginPage from "./pages/LoginPage";
+import UserDashboard from "./pages/UserDashboard";
 import Navbar from "./components/Navbar";
+
 
 export default function App() {
   return (
@@ -17,7 +19,12 @@ export default function App() {
         <Route path="/livros/adicionar" element={<AddBookPage />} />
         <Route path="/users" element={<UsersPage />} />
         <Route path="/emprestimos" element={<LoansPage />} />
-        <Route path="/emprestimos/devolver" element={<LoanReturnPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/user/dashboard" element={<UserDashboard />} />
+
+
+
+
       </Routes>
     </BrowserRouter>
   );

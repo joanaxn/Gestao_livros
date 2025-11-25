@@ -10,23 +10,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RequestMapping("/emprestimos")
 public class EmprestimoController {
 
     @Autowired
     private EmprestimoService emprestimoService;
 
+    // Criar novo empréstimo
     @PostMapping("/emprestar")
     public String emprestarLivro(@RequestBody EmprestimoRequest request) {
         return emprestimoService.emprestarLivro(
                 request.userId,
                 request.titulo,
-                request.dataEmprestimo,
-                request.idEmprestimo
+                request.dataEmprestimo
         );
     }
 
+    // Devolver livro
     @PostMapping("/devolver")
     public String devolverLivro(@RequestBody DevolucaoRequest request) {
         return emprestimoService.devolverLivro(
@@ -35,18 +36,5 @@ public class EmprestimoController {
         );
     }
 
-    @GetMapping("/listarAtivos")
-    public ArrayList<Emprestimo> listarAtivos() {
-        return emprestimoService.listarAtivos();
-    }
 
-    @GetMapping("/listarTodos")
-    public ArrayList<Emprestimo> listarTodos() {
-        return emprestimoService.listarTodos();
-    }
-
-    @PutMapping("/{id}/confirmar")
-    public String confirmarEmprestimo(@PathVariable int id) {
-        return emprestimoService.confirmarEmprestimo(id);
-    }
 }

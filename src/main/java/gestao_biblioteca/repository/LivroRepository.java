@@ -19,13 +19,19 @@ public class LivroRepository {
     }
 
     public Livro procurarPorTitulo(String titulo) {
+        if (titulo == null) return null;
+
+        String t = titulo.trim().toLowerCase();
+
         for (Livro livro : livros) {
-            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
+            if (livro.getTitulo() != null &&
+                    livro.getTitulo().trim().toLowerCase().equals(t)) {
                 return livro;
             }
         }
         return null;
     }
+
 
     public Livro procurarPorISBN(String isbn) {
         for (Livro livro : livros) {

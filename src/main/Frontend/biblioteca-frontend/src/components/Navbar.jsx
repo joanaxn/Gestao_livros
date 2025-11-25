@@ -15,6 +15,7 @@ export default function Navbar() {
           <li><a href="/livros/adicionar">Adicionar Livro</a></li> {/* 🔥 ROTA CERTA */}
           <li><a href="/users">Utilizadores</a></li>
           <li><a href="/emprestimos">Empréstimos</a></li>
+          <li><a href = "/login"> Login </a></li>
         </ul>
 
       </div>
