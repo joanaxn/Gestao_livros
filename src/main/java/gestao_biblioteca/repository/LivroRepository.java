@@ -1,78 +1,20 @@
 package gestao_biblioteca.repository;
 
 import gestao_biblioteca.models.Livro;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Repository
-public class LivroRepository {
+public interface LivroRepository extends JpaRepository<Livro, Long> {
 
-    private ArrayList<Livro> livros;
+    // JPA cria automaticamente esta query
+    Livro findByTituloIgnoreCase(String titulo);
 
-    public LivroRepository() {
-        this.livros = new ArrayList<>();
-    }
+    Livro findByIsbn(String isbn);
 
-    public void adicionarLivro(Livro livro) {
-            livros.add(livro);
-    }
+    List<Livro> findByAutorIgnoreCase(String autor);
 
-    public Livro procurarPorTitulo(String titulo) {
-        if (titulo == null) return null;
-
-        String t = titulo.trim().toLowerCase();
-
-        for (Livro livro : livros) {
-            if (livro.getTitulo() != null &&
-                    livro.getTitulo().trim().toLowerCase().equals(t)) {
-                return livro;
-            }
-        }
-        return null;
-    }
-
-
-    public Livro procurarPorISBN(String isbn) {
-        for (Livro livro : livros) {
-            if (livro.getIsbn().equalsIgnoreCase(isbn)) {
-                return livro;
-            }
-        }
-        return null;
-    }
-
-    public ArrayList<Livro> buscarPorAutor(String autor) {
-        ArrayList<Livro> resultados = new ArrayList<>();
-        for (Livro livro : livros) {
-            if (livro.getAutor().equalsIgnoreCase(autor)) {
-                resultados.add(livro);
-            }
-        }
-        return resultados;
-    }
-
-    public ArrayList<Livro> listarDisponiveis() {
-        ArrayList<Livro> disponiveis = new ArrayList<>();
-        for (Livro livro : livros) {
-            if (livro.isDisponivel()) {
-                disponiveis.add(livro);
-            }
-        }
-        return disponiveis;
-    }
-
-    public boolean removerLivro(String titulo) {
-        for (Livro livro : livros) {
-            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
-                livros.remove(livro);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public ArrayList<Livro> listarTodos() {
-        return new ArrayList<>(livros);
-    }
+    List<Livro> findByDisponivelTrue();
 }

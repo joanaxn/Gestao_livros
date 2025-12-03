@@ -1,32 +1,17 @@
 package gestao_biblioteca.repository;
 
 import gestao_biblioteca.models.Emprestimo;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Repository
-public class EmprestimoRepository {
+public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long> {
 
-    private ArrayList<Emprestimo> emprestimos = new ArrayList<>();
+    // listar todos os empréstimos ainda não devolvidos
+    List<Emprestimo> findByDevolvidoFalse();
 
-    public void adicionarEmprestimo(Emprestimo emp) {
-        emprestimos.add(emp);
-    }
-
-    public Emprestimo procurarPorId(int id) {
-        return emprestimos.stream().filter(e -> e.getIdEmprestimo() == id).findFirst().orElse(null);
-    }
-
-    public ArrayList<Emprestimo> listarTodos() {
-        return new ArrayList<>(emprestimos);
-    }
-
-    public ArrayList<Emprestimo> listarAtivos() {
-        ArrayList<Emprestimo> ativos = new ArrayList<>();
-        for (Emprestimo e : emprestimos) {
-            if (!e.isDevolvido()) ativos.add(e);
-        }
-        return ativos;
-    }
+    // listar todos os empréstimos de um user específico
+    List<Emprestimo> findByUserId(Long userId);
 }

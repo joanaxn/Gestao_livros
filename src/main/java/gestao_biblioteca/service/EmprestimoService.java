@@ -9,15 +9,14 @@ import gestao_biblioteca.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class EmprestimoService {
 
     private final EmprestimoRepository emprestimoRepo;
     private final LivroRepository livroRepo;
     private final UserRepository userRepo;
-
-    private int nextEmprestimoId = 1;
 
     @Autowired
     public EmprestimoService(EmprestimoRepository emprestimoRepo,
@@ -28,26 +27,33 @@ public class EmprestimoService {
         this.userRepo = userRepo;
     }
 
-    public String emprestarLivro(int userId, String titulo, String dataEmprestimo) {
+    // -----------------------------------------
+    //  REGISTAR EMPRÉSTIMO
+    // -----------------------------------------
+    public String emprestarLivro(Long userId, String titulo, String dataEmprestimo) {
 
-        User user = userRepo.procurarPorId(userId);
+        // procurar user na BD
+        User user = userRepo.findById(userId).orElse(null);
         if (user == null) return "User não encontrado.";
 
-        Livro livro = livroRepo.procurarPorTitulo(titulo);
+        // procurar livro na BD
+        Livro livro = livroRepo.findByTituloIgnoreCase(titulo);
         if (livro == null) return "Livro não encontrado.";
 
         if (!livro.isDisponivel()) return "Livro indisponível.";
 
-        // limitar 3 ativos
-        long ativos = user.getLivrosemprestimos()
+        // limitar máximo de 3 empréstimos ativos
+        List<Emprestimo> ativos = emprestimoRepo.findByUserId(userId)
                 .stream()
                 .filter(e -> !e.isDevolvido())
-                .count();
+                .toList();
 
-        if (ativos >= 3) return "O utilizador já atingiu o limite de 3 empréstimos.";
+        if (ativos.size() >= 3) {
+            return "O utilizador já atingiu o limite de 3 empréstimos.";
+        }
 
+        // criar empréstimo
         Emprestimo emp = new Emprestimo(
-                nextEmprestimoId++,
                 user,
                 livro,
                 dataEmprestimo,
@@ -55,55 +61,36 @@ public class EmprestimoService {
                 false
         );
 
-        // adicionar ao repositório
-        emprestimoRepo.adicionarEmprestimo(emp);
+        // guardar no MySQL
+        emprestimoRepo.save(emp);
 
-// criar cópia SEM user para guardar dentro do user
-        Emprestimo copia = new Emprestimo(
-                emp.getIdEmprestimo(),
-                null,                           // <-- TIRA O USER !!!!
-                emp.getLivro(),
-                emp.getDataEmprestimo(),
-                emp.getDataDevolucao(),
-                emp.isDevolvido()
-        );
-
-// guardar cópia no user (SEM CICLO)
-        user.getLivrosemprestimos().add(copia);
-
-// livro fica indisponível
+        // marcar livro como indisponível
         livro.setDisponivel(false);
+        livroRepo.save(livro);
 
         return "Empréstimo registado!";
     }
 
 
+    // -----------------------------------------
+    //  DEVOLVER LIVRO
+    // -----------------------------------------
+    public String devolverLivro(Long idEmprestimo, String dataDevolucao) {
 
-    public String devolverLivro(int idEmprestimo, String dataDevolucao) {
-
-        Emprestimo emp = emprestimoRepo.procurarPorId(idEmprestimo);
+        Emprestimo emp = emprestimoRepo.findById(idEmprestimo).orElse(null);
 
         if (emp == null) return "Empréstimo não encontrado.";
         if (emp.isDevolvido()) return "Este empréstimo já foi devolvido.";
 
-        // marcar o emprestimo original como devolvido
-        emp.setDataDevolucao(dataDevolucao);
+        // atualizar estado
         emp.setDevolvido(true);
+        emp.setDataDevolucao(dataDevolucao);
+        emprestimoRepo.save(emp);
 
-        // o livro fica disponível novamente
-        emp.getLivro().setDisponivel(true);
-
-        // AGORA O PASSO IMPORTANTE: atualizar a cópia dentro do user
-        User user = emp.getUser();
-        if (user != null && user.getLivrosemprestimos() != null) {
-            for (Emprestimo e : user.getLivrosemprestimos()) {
-                if (e.getIdEmprestimo() == idEmprestimo) {
-                    e.setDevolvido(true);
-                    e.setDataDevolucao(dataDevolucao);
-                    break;
-                }
-            }
-        }
+        // tornar livro disponível novamente
+        Livro livro = emp.getLivro();
+        livro.setDisponivel(true);
+        livroRepo.save(livro);
 
         return "Livro devolvido!";
     }

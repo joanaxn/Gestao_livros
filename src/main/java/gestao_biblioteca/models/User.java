@@ -1,30 +1,33 @@
 package gestao_biblioteca.models;
 
-import java.util.ArrayList;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "users")
 public class User {
-    private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;  // PK auto-incrementada
+
     private String nome;
+
+    @Column(unique = true, nullable = false)
     private String email;
+
     private String contacto;
     private String password;
 
-    private ArrayList<Emprestimo> livrosemprestimos;
-
-
     public User() {
-        this.livrosemprestimos = new ArrayList<>();
     }
 
     // getters e setters
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    // não criamos setId — o MySQL trata disso
 
     public String getNome() {
         return nome;
@@ -58,14 +61,6 @@ public class User {
         this.password = password;
     }
 
-    public ArrayList<Emprestimo> getLivrosemprestimos() {
-        return livrosemprestimos;
-    }
-
-    public void setLivrosemprestimos(ArrayList<Emprestimo> livrosemprestimos) {
-        livrosemprestimos = livrosemprestimos;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -73,7 +68,6 @@ public class User {
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", contacto='" + contacto + '\'' +
-                ", Livrosemprestimos=" + livrosemprestimos +
                 '}';
     }
 }

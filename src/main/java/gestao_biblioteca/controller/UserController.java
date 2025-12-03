@@ -28,29 +28,22 @@ public class UserController {
         if (user == null) return null;
         if (!user.getPassword().equals(loginRequest.getPassword())) return null;
 
-        // remover lista para evitar recursão
-        user.setLivrosemprestimos(null);
+        // EVITA LOOPS INFINITOS AO DEVOLVER O USER NO LOGIN
         return user;
     }
 
     @GetMapping("/listar")
     public ArrayList<User> listarUsers(){
-        ArrayList<User> lista = userService.listarUsers();
-
-        // APAGA SEMPRE empréstimos para frontend
-        for (User u : lista) {
-            u.setLivrosemprestimos(null);
-        }
-
-        return lista;
+        return userService.listarUsers();
     }
 
     @GetMapping("/{id}/emprestimosAtivos")
-    public ArrayList<Emprestimo> listarEmprestimosAtivos(@PathVariable int id) {
+    public ArrayList<Emprestimo> listarEmprestimosAtivos(@PathVariable Long id) {
         ArrayList<Emprestimo> lista = userService.listarEmprestimosAtivos(id);
 
+        // remover o user dentro de cada empréstimo para evitar recursão
         for (Emprestimo e : lista) {
-            e.setUser(null); // remover o user evita loops infinitos
+            e.setUser(null);
         }
 
         return lista;

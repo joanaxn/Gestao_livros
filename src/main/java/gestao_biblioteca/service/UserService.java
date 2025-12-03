@@ -1,77 +1,72 @@
 package gestao_biblioteca.service;
 
-import gestao_biblioteca.models.Emprestimo;
 import gestao_biblioteca.models.User;
+import gestao_biblioteca.models.Emprestimo;
+import gestao_biblioteca.repository.EmprestimoRepository;
 import gestao_biblioteca.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class UserService {
 
     private final UserRepository repository;
+    private final EmprestimoRepository emprestimoRepo;
 
-    private int nextId = 1;
 
     @Autowired
-    public UserService(UserRepository repository) {
+    public UserService(UserRepository repository,
+                       EmprestimoRepository emprestimoRepo) {
         this.repository = repository;
+        this.emprestimoRepo = emprestimoRepo;
     }
+
 
     public String adicionarUser(User user) {
 
-        if (repository.procurarPorEmail(user.getEmail()) != null) {
+        // Verificar email único
+        if (repository.findByEmail(user.getEmail()) != null) {
             return "Já existe um utilizador com esse email.";
         }
 
-        user.setId(nextId++);
-        user.setLivrosemprestimos(new ArrayList<>());
+        // JPA trata do ID e guarda o user
+        repository.save(user);
 
-        repository.adicionarUser(user);
         return "Utilizador adicionado!";
     }
 
-    public User procurarPorId(int id) {
-        return repository.procurarPorId(id);
+    public User procurarPorId(Long id) {
+        return repository.findById(id).orElse(null);
     }
 
     public User procurarPorEmail(String email) {
-        return repository.procurarPorEmail(email);
+        return repository.findByEmail(email);
     }
 
-    public String removerUser(int id) {
-        if (repository.removerUser(id)) return "Utilizador removido.";
+    public String removerUser(Long id) {
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+            return "Utilizador removido.";
+        }
         return "Utilizador não encontrado.";
     }
 
-    public ArrayList<Emprestimo> listarEmprestimosAtivos(int userId) {
+    // POR AGORA devolve lista vazia (vamos corrigir quando migrarmos EmprestimoService)
+    public ArrayList<Emprestimo> listarEmprestimosAtivos(Long userId) {
 
-        User user = repository.procurarPorId(userId);
+        List<Emprestimo> lista = emprestimoRepo.findByUserId(userId)
+                .stream()
+                .filter(e -> !e.isDevolvido())
+                .toList();
 
-        if (user == null || user.getLivrosemprestimos() == null)
-            return new ArrayList<>();
-
-        ArrayList<Emprestimo> ativos = new ArrayList<>();
-
-        for (Emprestimo e : user.getLivrosemprestimos()) {
-            if (!e.isDevolvido()) {
-                Emprestimo copia = new Emprestimo(
-                        e.getIdEmprestimo(),
-                        null,
-                        e.getLivro(),
-                        e.getDataEmprestimo(),
-                        e.getDataDevolucao(),
-                        false
-                );
-                ativos.add(copia);
-            }
-        }
-
-        return ativos;
+        return new ArrayList<>(lista);
     }
 
+
     public ArrayList<User> listarUsers() {
-        return repository.listarUsers();
+        return new ArrayList<>(repository.findAll());
     }
 }

@@ -10,7 +10,7 @@ export default function UsersPage() {
 
   async function adicionarUser() {
 
-    // --- validações ---
+    //validações
 
     if (!nome || !email || !contacto || !password) {
       alert("Preenche todos os campos pf");
@@ -23,26 +23,25 @@ export default function UsersPage() {
       return;
     }
 
-    // validar email simples
+    // validar email
     const emailValido = /\S+@\S+\.\S+/.test(email);
     if (!emailValido) {
       alert("Email inválido!");
       return;
     }
 
-    // validar contacto = exatamente 9 números
+    // validar contacto
     if (!/^\d{9}$/.test(contacto)) {
       alert("O contacto deve ter exatamente 9 números!");
       return;
     }
 
-    //scriar user
+    //criar user
     const newUser = { nome, email, contacto, password };
     const result = await UserService.adicionarUser(newUser);
 
     alert(result);
 
-    // limpar campos
     setNome("");
     setEmail("");
     setContacto("");

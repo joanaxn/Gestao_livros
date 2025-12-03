@@ -10,7 +10,7 @@ const EmprestimoService = {
     return res.data;
   },
 
-  // 🔥 NOVO: CONFIRMAR EMPRÉSTIMO
+  // NOVO: CONFIRMAR EMPRÉSTIMO
   async confirmarEmprestimo(id) {
     const res = await axios.put(`${API_URL}/${id}/confirmar`);
     return res.data;

@@ -1,15 +1,30 @@
 package gestao_biblioteca.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "emprestimos")
 public class Emprestimo {
-    private int idEmprestimo;
-    private gestao_biblioteca.models.User user;
-    private gestao_biblioteca.models.Livro livro;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idEmprestimo;   // PK auto-incrementada
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "livro_id", nullable = false)
+    private Livro livro;
+
     private String dataEmprestimo;
     private String dataDevolucao;
     private boolean devolvido;
 
-    public Emprestimo(int idEmprestimo, gestao_biblioteca.models.User user, gestao_biblioteca.models.Livro livro, String dataEmprestimo, String dataDevolucao, boolean devolvido) {
-        this.idEmprestimo = idEmprestimo;
+    public Emprestimo() {}
+
+    public Emprestimo(User user, Livro livro, String dataEmprestimo, String dataDevolucao, boolean devolvido) {
         this.user = user;
         this.livro = livro;
         this.dataEmprestimo = dataEmprestimo;
@@ -17,28 +32,23 @@ public class Emprestimo {
         this.devolvido = devolvido;
     }
 
-
-    public int getIdEmprestimo() {
+    public Long getIdEmprestimo() {
         return idEmprestimo;
     }
 
-    public void setIdEmprestimo(int idEmprestimo) {
-        this.idEmprestimo = idEmprestimo;
-    }
-
-    public gestao_biblioteca.models.User getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(gestao_biblioteca.models.User user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
-    public gestao_biblioteca.models.Livro getLivro() {
+    public Livro getLivro() {
         return livro;
     }
 
-    public void setLivro(gestao_biblioteca.models.Livro livro) {
+    public void setLivro(Livro livro) {
         this.livro = livro;
     }
 

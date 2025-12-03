@@ -1,15 +1,13 @@
 package gestao_biblioteca.controller;
 
 import gestao_biblioteca.models.Livro;
+import gestao_biblioteca.service.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import gestao_biblioteca.service.LivroService;
 
 import java.util.ArrayList;
 
 @CrossOrigin(origins = "*")
-
-
 @RestController
 @RequestMapping("/livros")
 public class LivroController {

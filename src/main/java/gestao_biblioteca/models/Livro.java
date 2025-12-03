@@ -1,15 +1,24 @@
 package gestao_biblioteca.models;
-public class Livro{
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "livros")
+public class Livro {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;  // PK auto-incrementada
+
+    @Column(unique = true, nullable = false)
     private String isbn;
+
     private String titulo;
     private String autor;
     private int anoPublicacao;
     private boolean disponivel;
 
-    public Livro() {
-
-    }
-
+    public Livro() {}
 
     public Livro(String isbn, String titulo, String autor, int anoPublicacao, boolean disponivel) {
         this.isbn = isbn;
@@ -18,6 +27,12 @@ public class Livro{
         this.anoPublicacao = anoPublicacao;
         this.disponivel = disponivel;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    // não criamos setId — ID é gerido pelo MySQL
 
     public String getIsbn() {
         return isbn;
@@ -62,13 +77,12 @@ public class Livro{
     @Override
     public String toString() {
         return "Livro{" +
-                "isbn='" + isbn + '\'' +
+                "id=" + id +
+                ", isbn='" + isbn + '\'' +
                 ", titulo='" + titulo + '\'' +
                 ", autor='" + autor + '\'' +
                 ", anoPublicacao=" + anoPublicacao +
                 ", disponivel=" + disponivel +
                 '}';
     }
-
-
 }

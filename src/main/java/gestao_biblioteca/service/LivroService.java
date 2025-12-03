@@ -1,9 +1,9 @@
 package gestao_biblioteca.service;
 
 import gestao_biblioteca.models.Livro;
+import gestao_biblioteca.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import gestao_biblioteca.repository.LivroRepository;
 
 import java.util.ArrayList;
 
@@ -18,27 +18,38 @@ public class LivroService {
     }
 
     public String adicionarLivro(Livro livro) {
-        repository.adicionarLivro(livro);
+
+        // impedir ISBN duplicado (a BD tb impede)
+        if (repository.findByIsbn(livro.getIsbn()) != null) {
+            return "Já existe um livro com esse ISBN.";
+        }
+
+        repository.save(livro);
         return "Livro adicionado!";
     }
 
     public Livro procurarPorTitulo(String titulo) {
-        return repository.procurarPorTitulo(titulo);
+        return repository.findByTituloIgnoreCase(titulo);
     }
 
     public Livro procurarPorISBN(String isbn) {
-        return repository.procurarPorISBN(isbn);
+        return repository.findByIsbn(isbn);
     }
 
     public ArrayList<Livro> listarDisponiveis() {
-        return repository.listarDisponiveis();
+        return new ArrayList<>(repository.findByDisponivelTrue());
     }
 
     public ArrayList<Livro> listarTodos() {
-        return repository.listarTodos();
+        return new ArrayList<>(repository.findAll());
     }
 
     public boolean removerLivro(String titulo) {
-        return repository.removerLivro(titulo);
+        Livro livro = repository.findByTituloIgnoreCase(titulo);
+
+        if (livro == null) return false;
+
+        repository.delete(livro);
+        return true;
     }
 }
