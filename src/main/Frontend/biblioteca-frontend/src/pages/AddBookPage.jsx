@@ -32,6 +32,20 @@ export default function AddBookPage() {
       return;
     }
 
+    // validar ISBN = exatamente 13 números
+    if (!/^\d{13}$/.test(isbn)) {
+      alert("O ISBN deve ter exatamente 13 números!");
+      return;
+    }
+
+
+    // validar ANO = entre 1900 e 2025
+    const anoNum = Number(ano);
+    if (anoNum < 1900 || anoNum > 2025) {
+      alert("O ano de publicação deve estar entre 1900 e 2025!");
+      return;
+    }
+
     const newBook = {
       isbn,
       titulo,
@@ -51,6 +65,9 @@ export default function AddBookPage() {
     setDisponivel(true);
     setImagemPreview(null);
   }
+
+
+
 
   return (
     <div style={{ padding: "30px", maxWidth: "500px", margin: "0 auto" }}>
@@ -87,8 +104,10 @@ export default function AddBookPage() {
       <input
         type="text"
         value={isbn}
+        maxLength={13}
         onChange={(e) => setIsbn(e.target.value)}
         style={{ width: "100%", marginBottom: "15px" }}
+
       />
 
       {/* DISPONÍVEL */}

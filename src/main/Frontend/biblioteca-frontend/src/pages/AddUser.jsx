@@ -9,16 +9,40 @@ export default function UsersPage() {
   const [password, setPassword] = useState("");
 
   async function adicionarUser() {
+
+    // --- validações ---
+
     if (!nome || !email || !contacto || !password) {
       alert("Preenche todos os campos pf");
       return;
     }
 
+    // validar nome (sem números)
+    if (/\d/.test(nome)) {
+      alert("O nome não pode conter números!");
+      return;
+    }
+
+    // validar email simples
+    const emailValido = /\S+@\S+\.\S+/.test(email);
+    if (!emailValido) {
+      alert("Email inválido!");
+      return;
+    }
+
+    // validar contacto = exatamente 9 números
+    if (!/^\d{9}$/.test(contacto)) {
+      alert("O contacto deve ter exatamente 9 números!");
+      return;
+    }
+
+    //scriar user
     const newUser = { nome, email, contacto, password };
     const result = await UserService.adicionarUser(newUser);
 
     alert(result);
 
+    // limpar campos
     setNome("");
     setEmail("");
     setContacto("");
@@ -53,22 +77,21 @@ export default function UsersPage() {
       {/* Contacto */}
       <label><strong>Contacto</strong></label>
       <input
-        type="number"
+        type="text"
         value={contacto}
         onChange={(e) => setContacto(e.target.value)}
         style={{ width: "100%", marginBottom: "15px" }}
+        maxLength={9}
       />
 
-
-       {/* Password */}
-            <label><strong>Password</strong></label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              style={{ width: "100%", marginBottom: "15px" }}
-            />
-
+      {/* Password */}
+      <label><strong>Password</strong></label>
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        style={{ width: "100%", marginBottom: "15px" }}
+      />
 
       {/* Botão */}
       <button
