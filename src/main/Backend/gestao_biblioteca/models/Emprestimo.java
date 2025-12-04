@@ -8,7 +8,7 @@ public class Emprestimo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEmprestimo;   // PK auto-incrementada
+    private Long idEmprestimo;   // PK
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)

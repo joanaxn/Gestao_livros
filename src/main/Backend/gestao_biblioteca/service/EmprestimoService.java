@@ -27,9 +27,8 @@ public class EmprestimoService {
         this.userRepo = userRepo;
     }
 
-    // -----------------------------------------
+
     //  REGISTAR EMPRÉSTIMO
-    // -----------------------------------------
     public String emprestarLivro(Long userId, String titulo, String dataEmprestimo) {
 
         // procurar user na BD
@@ -42,7 +41,6 @@ public class EmprestimoService {
 
         if (!livro.isDisponivel()) return "Livro indisponível.";
 
-        // limitar máximo de 3 empréstimos ativos
         List<Emprestimo> ativos = emprestimoRepo.findByUserId(userId)
                 .stream()
                 .filter(e -> !e.isDevolvido())
@@ -61,7 +59,7 @@ public class EmprestimoService {
                 false
         );
 
-        // guardar no MySQL
+        // guardar na bd
         emprestimoRepo.save(emp);
 
         // marcar livro como indisponível
@@ -72,9 +70,8 @@ public class EmprestimoService {
     }
 
 
-    // -----------------------------------------
+
     //  DEVOLVER LIVRO
-    // -----------------------------------------
     public String devolverLivro(Long idEmprestimo, String dataDevolucao) {
 
         Emprestimo emp = emprestimoRepo.findById(idEmprestimo).orElse(null);
@@ -82,7 +79,6 @@ public class EmprestimoService {
         if (emp == null) return "Empréstimo não encontrado.";
         if (emp.isDevolvido()) return "Este empréstimo já foi devolvido.";
 
-        // atualizar estado
         emp.setDevolvido(true);
         emp.setDataDevolucao(dataDevolucao);
         emprestimoRepo.save(emp);

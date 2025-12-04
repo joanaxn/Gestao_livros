@@ -27,12 +27,9 @@ public class UserService {
 
     public String adicionarUser(User user) {
 
-        // Verificar email único
         if (repository.findByEmail(user.getEmail()) != null) {
             return "Já existe um utilizador com esse email.";
         }
-
-        // JPA trata do ID e guarda o user
         repository.save(user);
 
         return "Utilizador adicionado!";
@@ -54,7 +51,6 @@ public class UserService {
         return "Utilizador não encontrado.";
     }
 
-    // POR AGORA devolve lista vazia (vamos corrigir quando migrarmos EmprestimoService)
     public ArrayList<Emprestimo> listarEmprestimosAtivos(Long userId) {
 
         List<Emprestimo> lista = emprestimoRepo.findByUserId(userId)

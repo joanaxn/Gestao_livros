@@ -4,7 +4,6 @@ import BookCard from "../components/BookCard";
 import "./BooksPage.css";
 
 
-//Faz com que apareçam os livros listados, vindos do backend
 
 export default function BooksPage() {
   const [livros, setLivros] = useState([]);

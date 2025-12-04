@@ -28,7 +28,7 @@ public class UserController {
         if (user == null) return null;
         if (!user.getPassword().equals(loginRequest.getPassword())) return null;
 
-        // EVITA LOOPS INFINITOS AO DEVOLVER O USER NO LOGIN
+        // evita loops infinitos
         return user;
     }
 

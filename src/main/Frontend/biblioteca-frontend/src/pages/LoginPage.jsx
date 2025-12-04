@@ -21,13 +21,9 @@ export default function LoginPage() {
       return;
     }
 
-    // guardar user no localStorage
     localStorage.setItem("user", JSON.stringify(user));
-
-    // navegar para dashboard
     navigate("/user/dashboard");
 
-    // força navbar a atualizar (importante!)
     window.location.reload();
   }
 

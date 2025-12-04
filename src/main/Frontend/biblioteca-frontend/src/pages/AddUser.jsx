@@ -11,26 +11,22 @@ export default function UsersPage() {
   async function adicionarUser() {
 
     //validações
-
     if (!nome || !email || !contacto || !password) {
       alert("Preenche todos os campos pf");
       return;
     }
 
-    // validar nome (sem números)
     if (/\d/.test(nome)) {
       alert("O nome não pode conter números!");
       return;
     }
 
-    // validar email
     const emailValido = /\S+@\S+\.\S+/.test(email);
     if (!emailValido) {
       alert("Email inválido!");
       return;
     }
 
-    // validar contacto
     if (!/^\d{9}$/.test(contacto)) {
       alert("O contacto deve ter exatamente 9 números!");
       return;

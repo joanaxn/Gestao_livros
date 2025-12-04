@@ -21,10 +21,6 @@ export default function App() {
         <Route path="/emprestimos" element={<LoansPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/user/dashboard" element={<UserDashboard />} />
-
-
-
-
       </Routes>
     </BrowserRouter>
   );

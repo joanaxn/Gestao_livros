@@ -9,7 +9,6 @@ import java.util.List;
 @Repository
 public interface LivroRepository extends JpaRepository<Livro, Long> {
 
-    // JPA cria automaticamente esta query
     Livro findByTituloIgnoreCase(String titulo);
 
     Livro findByIsbn(String isbn);

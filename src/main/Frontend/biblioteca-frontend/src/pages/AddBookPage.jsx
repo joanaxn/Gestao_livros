@@ -32,14 +32,14 @@ export default function AddBookPage() {
       return;
     }
 
-    // validar ISBN = exatamente 13 números
+    // validar ISBN
     if (!/^\d{13}$/.test(isbn)) {
       alert("O ISBN deve ter exatamente 13 números!");
       return;
     }
 
 
-    // validar ANO = entre 1900 e 2025
+    // validar ANO
     const anoNum = Number(ano);
     if (anoNum < 1900 || anoNum > 2025) {
       alert("O ano de publicação deve estar entre 1900 e 2025!");
@@ -57,7 +57,6 @@ export default function AddBookPage() {
     const result = await LivroService.adicionarLivro(newBook);
     alert(result);
 
-    // limpar
     setTitulo("");
     setAutor("");
     setAno("");
@@ -65,8 +64,6 @@ export default function AddBookPage() {
     setDisponivel(true);
     setImagemPreview(null);
   }
-
-
 
 
   return (

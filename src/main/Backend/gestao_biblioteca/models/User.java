@@ -8,7 +8,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;  // PK auto-incrementada
+    private Long id;  // PK
 
     private String nome;
 
@@ -21,13 +21,10 @@ public class User {
     public User() {
     }
 
-    // getters e setters
 
     public Long getId() {
         return id;
     }
-
-    // não criamos setId — o MySQL trata disso
 
     public String getNome() {
         return nome;

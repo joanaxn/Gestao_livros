@@ -8,7 +8,7 @@ public class Livro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;  // PK auto-incrementada
+    private Long id;  // PK
 
     @Column(unique = true, nullable = false)
     private String isbn;
@@ -32,7 +32,6 @@ public class Livro {
         return id;
     }
 
-    // não criamos setId — ID é gerido pelo MySQL
 
     public String getIsbn() {
         return isbn;

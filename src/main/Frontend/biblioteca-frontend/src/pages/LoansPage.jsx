@@ -14,12 +14,12 @@ export default function LoansPage() {
 
   async function carregarDados() {
 
-    // ---- USERS ----
+    //USERS
     const usersList = await UserService.listar();
     const usersArray = Array.isArray(usersList) ? usersList : [];
     setUsers(usersArray);
 
-    // ---- LIVROS ----
+    // LIVROS
     const listaLivros = await LivroService.listarDisponiveis();
 
     const livrosComImagem = await Promise.all(

@@ -2,8 +2,6 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8080/livros";
 
-//so pede livros ao backend
-
 export default {
   async listarTodos() {
     const res = await axios.get(`${API_URL}/todos`);

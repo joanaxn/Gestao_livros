@@ -18,8 +18,6 @@ public class LivroService {
     }
 
     public String adicionarLivro(Livro livro) {
-
-        // impedir ISBN duplicado (a BD tb impede)
         if (repository.findByIsbn(livro.getIsbn()) != null) {
             return "Já existe um livro com esse ISBN.";
         }
