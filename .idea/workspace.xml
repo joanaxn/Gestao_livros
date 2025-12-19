@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="068516a3-f099-42e3-9123-422d50ba8a27" name="Changes" comment="Final project (one feature missing)">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/BibliotecaApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/controller/EmprestimoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/controller/LivroController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/dto/DevolucaoRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/dto/EmprestimoRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/models/Emprestimo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/models/Livro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/models/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/repository/EmprestimoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/repository/LivroRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/service/EmprestimoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/service/LivroService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/service/UserService.java" beforeDir="false" />
-    </list>
+    <list default="true" id="068516a3-f099-42e3-9123-422d50ba8a27" name="Changes" comment="Final project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,21 +47,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BibliotecaApplication.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Joana Nogueira/OneDrive/Ambiente de Trabalho/Gestao_livros",
-    "onboarding.tips.debug.path": "C:/Users/Joana Nogueira/OneDrive/Ambiente de Trabalho/Gestão Livros/Gestao_livros/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "settings.qodana"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BibliotecaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Joana Nogueira/OneDrive/Ambiente de Trabalho/Gestao_livros&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Joana Nogueira/OneDrive/Ambiente de Trabalho/Gestão Livros/Gestao_livros/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.qodana&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Joana Nogueira\OneDrive\Ambiente de Trabalho\Gestão Livros\Gestao_livros\backend" />
@@ -175,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764868458304</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Final project">
+      <option name="closed" value="true" />
+      <created>1766183842609</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1766183842609</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,6 +191,7 @@
     <MESSAGE value="Integration with MySQL." />
     <MESSAGE value="Added complete README with project documentation." />
     <MESSAGE value="Final project (one feature missing)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final project (one feature missing)" />
+    <MESSAGE value="Final project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final project" />
   </component>
 </project>
