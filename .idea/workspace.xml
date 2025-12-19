@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="068516a3-f099-42e3-9123-422d50ba8a27" name="Changes" comment="Final project (one feature missing)">
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/BibliotecaApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/controller/EmprestimoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/controller/LivroController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/dto/DevolucaoRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/dto/EmprestimoRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/models/Emprestimo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/models/Livro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/models/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/repository/EmprestimoRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/repository/LivroRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/service/EmprestimoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/service/LivroService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/gestao_biblioteca/service/UserService.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;joanaxn&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/joanaxn/Gestao_livros.git&quot;,
+    &quot;accountId&quot;: &quot;875d062c-a68d-4c97-8d5c-10b48b34a35c&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/Frontend/biblioteca-frontend/src/pages/BooksPage.jsx" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="35c3JpGCaaaPn0H2VrfN0OTNgMF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BibliotecaApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Joana Nogueira/OneDrive/Ambiente de Trabalho/Gestao_livros",
+    "onboarding.tips.debug.path": "C:/Users/Joana Nogueira/OneDrive/Ambiente de Trabalho/Gestão Livros/Gestao_livros/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "settings.qodana"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Joana Nogueira\OneDrive\Ambiente de Trabalho\Gestão Livros\Gestao_livros\backend" />
+      <recent name="C:\Users\Joana Nogueira\OneDrive\Ambiente de Trabalho\Gestão Livros\Gestao_livros" />
+      <recent name="C:\Users\Joana Nogueira\OneDrive\Ambiente de Trabalho\Gestão Livros\Gestao_livros\frontend" />
+      <recent name="C:\Users\Joana Nogueira\OneDrive\Ambiente de Trabalho\Gestão Livros\Gestao_livros\src\main" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="068516a3-f099-42e3-9123-422d50ba8a27" name="Changes" comment="" />
+      <created>1763395465756</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763395465756</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Implement full CRUD and business logic for books, users and loans, including validation and workflows">
+      <option name="closed" value="true" />
+      <created>1763505404673</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1763505404673</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added book catalog, available-books view and Google Books image support.">
+      <option name="closed" value="true" />
+      <created>1763580039202</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1763580039202</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: implement full book creation workflow and improve loan/catalog integration&#10;&#10;Added new AddBookPage with form, cover preview and Google Books lookup&#10;&#10;Added “available for loan” flag to control catalog vs loan availability&#10;&#10;Updated LivroService with addBook endpoint&#10;&#10;Added route /livros/adicionar and updated Navbar navigation&#10;&#10;Improved loan flow with automatic refresh after creating an emprestimo&#10;&#10;Fixed routing and JSX structure issues&#10;&#10;General cleanup of service structure and API usage">
+      <option name="closed" value="true" />
+      <created>1763678404448</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1763678404448</updated>
+    </task>
+    <task id="LOCAL-00004" summary="All logic of loans done. User and books creation also done.">
+      <option name="closed" value="true" />
+      <created>1764003794313</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1764003794313</updated>
+    </task>
+    <task id="LOCAL-00005" summary="All logic of loans correctly modified and done. User and books creation also done. &#10;&#10;Missing: User logout and duplication of books.">
+      <option name="closed" value="true" />
+      <created>1764038126659</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1764038126659</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Validation of the input fields.">
+      <option name="closed" value="true" />
+      <created>1764728398538</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1764728398538</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Validation of the input fields.">
+      <option name="closed" value="true" />
+      <created>1764728413419</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1764728413419</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Integration with MySQL.">
+      <option name="closed" value="true" />
+      <created>1764731613048</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764731613048</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added complete README with project documentation.">
+      <option name="closed" value="true" />
+      <created>1764866620306</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1764866620306</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Final project (one feature missing)">
+      <option name="closed" value="true" />
+      <created>1764868458304</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1764868458304</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implement full CRUD and business logic for books, users and loans, including validation and workflows" />
+    <MESSAGE value="Added book catalog, available-books view and Google Books image support." />
+    <MESSAGE value="feat: implement full book creation workflow and improve loan/catalog integration&#10;&#10;Added new AddBookPage with form, cover preview and Google Books lookup&#10;&#10;Added “available for loan” flag to control catalog vs loan availability&#10;&#10;Updated LivroService with addBook endpoint&#10;&#10;Added route /livros/adicionar and updated Navbar navigation&#10;&#10;Improved loan flow with automatic refresh after creating an emprestimo&#10;&#10;Fixed routing and JSX structure issues&#10;&#10;General cleanup of service structure and API usage" />
+    <MESSAGE value="All logic of loans done. User and books creation also done." />
+    <MESSAGE value="All logic of loans correctly modified and done. User and books creation also done. &#10;&#10;Missing: User logout and duplication of books." />
+    <MESSAGE value="Validation of the input fields." />
+    <MESSAGE value="Integration with MySQL." />
+    <MESSAGE value="Added complete README with project documentation." />
+    <MESSAGE value="Final project (one feature missing)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final project (one feature missing)" />
+  </component>
+</project>
