@@ -1,116 +1,70 @@
-# Sistema de Gestão de Biblioteca
+# Getting Started with Create React App
 
-Autora : Joana Nogueira
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Desenvolvedora fullstack com maior foco em backend, apaixonada por criar soluções funcionais e bem estruturadas.
+## Available Scripts
 
-Esta é uma aplicação fullstack desenvolvida em **Java Spring Boot** e **React**, com base de dados **MySQL**, que permite gerir livros, utilizadores e empréstimos de forma eficiente e intuitiva.
+In the project directory, you can run:
 
+### `npm start`
 
----
-## Funcionalidades
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### **Livros**
-- Adicionar livros
-- Listar todos os livros no catálogo
-- Pesquisa automática de capas via **Google Books API**
-- Listar apenas livros disponíveis na página de empréstimos
-- Validação de ISBN
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
----
+### `npm test`
 
-### **Utilizadores**
-- Criar utilizadores
-- Login simples
-- Validação de contacto e email
-- Dashboard com empréstimos ativos
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
----
+### `npm run build`
 
-### **Empréstimos**
-- Registar empréstimo
-- Devolver empréstimo
-- Limite automático de **3 empréstimos ativos por utilizador**
-- Atualização automática da disponibilidade do livro
-- Modal para selecionar utilizador e data do empréstimo
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
----
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### **Frontend **
-- Interface limpa e moderna
-- Galeria com miniaturas e **lightbox**
-- Validações de formulários
-- Navegação com **React Router**
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run eject`
 
----
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-## Tecnologias Utilizadas
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### Backend
-- Java 17
-- Spring Boot 3
-- Spring Web
-- Spring Data JPA
-- MySQL
-- Hibernate
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-### Frontend
-- React
-- Axios
-- React Router
-- CSS Modules
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
----
-## Arquitetura & Backend
+## Learn More
 
-- Estruturação de API REST seguindo boas práticas
-- Separação correta de responsabilidades (**Controller → Service → Repository**)
-- Prevenção de loops JSON através de DTOs
-- Integração com **MySQL + JPA + Hibernate**
-- Implementação de validações no backend
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
----
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-## Frontend & Integração
+### Code Splitting
 
-- Gestão de estado com React
-- Integração com APIs REST
-- Validações de formulários
-- Integração com **Google Books API**
-- Tratamento de erros e melhorias de UX
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
+### Analyzing the Bundle Size
 
----
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-## Base de Dados
+### Making a Progressive Web App
 
-### Tabelas criadas automaticamente pelo Hibernate:
-- **users**
-- **livros**
-- **emprestimos**
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-Chaves e relações:
-- User (1) → (N) Emprestimos
-- Livro (1) → (N) Emprestimos
+### Advanced Configuration
 
----
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-##  Como correr o projeto
+### Deployment
 
-### Backend
-```bash
-cd Gestao_livros
-mvn spring-boot:run
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-O backend arranca em:
-http://localhost:8080
+### `npm run build` fails to minify
 
-
-Frontend
-cd biblioteca-frontend
-npm install
-npm start
-
-Frontend disponível em:
-http://localhost:3000
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
